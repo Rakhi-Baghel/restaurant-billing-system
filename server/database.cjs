@@ -28,6 +28,15 @@ db.serialize(() => {
     )
   `);
 
+  db.run(`
+    CREATE TABLE IF NOT EXISTS orders (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      items TEXT,
+      total INTEGER,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+`);
+
   // ITEMS MASTER TABLE
 db.run(`
   CREATE TABLE IF NOT EXISTS items (
